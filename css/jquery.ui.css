@@ -1,12 +1,3 @@
-:root{
-	--paleta-primaria: #3498db;
-    --paleta-secundaria: #2ecc71;
-    --paleta-terciaria: #2ecc71;
-    --paleta-fuente: #333;
-    --padding-general: 16px;
-    --ancho-maximo: 1200px;
-}
-
 .turnjs-slider{
 	width:600px;
 	height:8px;

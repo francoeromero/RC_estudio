@@ -2,6 +2,27 @@
  * Magazine sample
 */
 
+// function applyResponsiveRotation() {
+//     if (window.innerWidth <= 600) {
+//         document.body.style.transform = 'rotate(-90deg)';
+//         document.body.style.transformOrigin = 'center';
+//         document.body.style.width = '100vh';
+//         document.body.style.height = '100vw';
+//         document.body.style.overflow = 'hidden';
+//     } else {
+//         // Restablecer estilos para pantallas más grandes
+//         document.body.style.transform = '';
+//         document.body.style.width = '';
+//         document.body.style.height = '';
+//         document.body.style.overflow = '';
+//     }
+// }
+
+// // Aplicar al cargar y al cambiar el tamaño de la pantalla
+// applyResponsiveRotation();
+// window.addEventListener('resize', applyResponsiveRotation);
+
+
 function addPage(page, book) {
 
 	var id, pages = book.turn('pages');
@@ -204,17 +225,45 @@ function isChrome() {
 
 }
 
+// let contenedor = document.querySelector('.magazine-viewport');
+
+// if (contenedor) {
+// 	contenedor.scrollTo({
+// 		left: 2000, 
+// 		behavior: 'smooth' 
+// 	});
+// }
+
 function disableControls(page) {
-		if (page==1)
-			$('.previous-button').hide();
-		else
-			$('.previous-button').show();
-					
-		if (page==$('.magazine').turn('pages'))
-			$('.next-button').hide();
-		else
-			$('.next-button').show();
+    // Verifica si la página actual es la primera
+    if (page == 1) {
+        $('.previous-button').hide();
+
+		
+		const contenedor = document.querySelector('.magazine-viewport'); // Selecciona el elemento con la clase
+		if (contenedor) {
+			contenedor.scrollTo({
+				left: 0, // Cambia este valor a la posición deseada en el eje x
+				behavior: 'smooth' // 'smooth' para desplazamiento suave o 'auto' para instantáneo
+			});
+		}
+		
+
+
+    } else {
+        $('.previous-button').show();
+    }
+    
+    // Verifica si la página actual es la última
+    if (page == $('.magazine').turn('pages')) {
+        $('.next-button').hide();
+    } else {
+        $('.next-button').show();
+    }
 }
+
+
+
 
 // Set the width and height for the viewport
 
@@ -256,7 +305,14 @@ function resizeViewport() {
 			$('.previous-button').css({height: bound.height, backgroundPosition: '-4px '+(bound.height/2-32/2)+'px'});
 		}
 
-		$('.magazine').css({top: -bound.height/2, left: -bound.width/2});
+		// $('.magazine').css({top: -bound.height/2, left: -bound.width/2});
+		// $('.magazine').css({top: -bound.height/4, left: -bound.width/4});
+		$('.magazine').css({
+			top: -bound.height / 2,
+			left: -bound.width / 2,
+
+			// transform: 'rotate(-90deg)'
+		});
 	}
 
 	var magazineOffset = $('.magazine').offset(),
@@ -403,12 +459,12 @@ flecha.addEventListener('click', function(){
     
     menuAbierto = !menuAbierto;
 });
-flecha.click();
+// flecha.click();
 
-// click automatico
-// setTimeout(function() {
-//     flecha.click();
-// }, 8000);
+
+setTimeout(function() {
+    flecha.click();
+}, 8000);
 
 
 
@@ -440,6 +496,7 @@ gsap.fromTo(
 	  delay: 0.5,
 	}
   );
+  
   gsap.fromTo(
 	".logo-parrafo",
 	{
@@ -454,3 +511,63 @@ gsap.fromTo(
 	}
   );
   
+
+  document.querySelector("video").playbackRate = 0.7; 
+
+
+
+
+
+
+// Al CAGARSE LA PAGINA SI ESTA ACTIVADO EL SCROLL(es porque esta en responsive) SE MUEVA PARA CENTRARSE
+window.addEventListener('load', () => {
+    const contenedor = document.querySelector('.magazine-viewport'); // Selecciona el elemento con la clase
+    if (contenedor) {
+        contenedor.scrollTo({
+            left: 1000, // Cambia este valor a la posición deseada en el eje x
+            behavior: 'smooth' // 'smooth' para desplazamiento suave o 'auto' para instantáneo
+        });
+    }
+});
+
+// RESPONSIVE CLICK FLECHAS
+
+function disableControls(page) {
+	if (page==1)
+		$('.previous-button-responsive').hide();
+	else
+		$('.previous-button-responsive').show();
+				
+	if (page==$('.magazine').turn('pages'))
+		$('.next-button-responsive').hide();
+	else
+		$('.next-button-responsive').show();
+}
+
+
+
+
+$(document).ready(function() {
+	// const contenedor = document.querySelector('.magazine-viewport'); 
+    $('.next-button-responsive').on('click', function() {
+        $('.next-button').click();
+		// if (document.querySelector('.magazine-viewport')) {
+		// 	document.querySelector('.magazine-viewport').scrollTo({
+		// 		left: 1000, 
+		// 		behavior: 'smooth' 
+		// 	});
+		// }
+    });
+});
+$(document).ready(function() {
+	const contenedor = document.querySelector('.magazine-viewport'); 
+    $('.previous-button-responsive').on('click', function() {
+        $('.previous-button').click();
+		// if (contenedor) {
+		// 	contenedor.scrollTo({
+		// 		left: 250, 
+		// 		behavior: 'smooth' 
+		// 	});
+		// }
+    });
+});
