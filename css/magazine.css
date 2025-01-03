@@ -871,35 +871,40 @@ video{
 }
 
 
-.responsive-icons{
-	display: none;
-	align-items: center;
-	justify-content: center;
-	flex-direction: row;
-	position: absolute;
+.responsive-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+    height: 150px; /* Altura del trapecio */
+    width: 650px;  /* Base inferior */
+    opacity: 0.8;
+    border: 2px solid rgb(206, 63, 7);
+    background: rgba(156, 40, 5, 0.5);
+    clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%);
+    /* Forma del trapecio (10% y 90% para los lados inclinados) */
+	overflow: visible;
+}
+.responsive-icons .r-icon img {
+    width: 5rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+.responsive-icons .r-icon img:hover {
+    width: 6rem;
+    transition: 1s;
+}
 
-	top: 0;                   /* Posición desde la parte superior */
-    left: 50%;                /* Centrado horizontal respecto al viewport */
-    transform: translateX(-50%); /* Ajuste de centrado */
-	z-index: 99;
-	height: 150px;
-	width: 450px;
-	opacity: 0.8;
-	border: 2px solid rgb(206, 63, 7);
-	border-radius: 10px;
-	background:rgba(156, 40, 5, 0.5);
-	position: fixed;
-}
-.responsive-icons .r-icon img{
-	
-	width: 5rem;
-	margin-left: 1.5rem;
-	margin-right: 1.5rem;
-}
-.responsive-icons .r-icon img:hover{
-	width: 6rem;
-	transition: 1s;
-}
+
+
+
+
+
 
 
 .flechas_responsive{
@@ -914,7 +919,7 @@ video{
 
 	.next-button-responsive{
 		position: fixed;
-		width: 8rem;
+		width: 15rem;
 		z-index: 9 !important;
 		bottom: 0;
 		right: 0;
@@ -924,7 +929,7 @@ video{
 	}
 	.previous-button-responsive{
 		position: fixed;
-		width: 8rem;
+		width: 15rem;
 		z-index: 9 !important;
 		bottom: 0;
 		left: 0;
@@ -976,6 +981,7 @@ video{
 
 	.responsive-icons{
 		display: flex;
+		/* margin-top: 8rem; */
 	}
 	#copy{
 		display: none;
