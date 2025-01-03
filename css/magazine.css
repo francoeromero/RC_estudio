@@ -921,6 +921,9 @@ video{
 	.responsive-icons{
 		display: flex !important;
 	}
+	.previous-button, .next-button{
+		display: none !important;
+	}
 
 	.next-button-responsive{
 		position: fixed;
