@@ -912,11 +912,6 @@ video{
 		justify-content: center;
 	}
 
-
-
-
-
-
 	.next-button-responsive{
 		position: fixed;
 		width: 8rem;
@@ -986,8 +981,8 @@ video{
 		display: none;
 	}
 	video,.capa{
-		width: 210vw !important; 
-
+		width: 310vw !important; 
+		height: 100vh;
 	}
 	.magazine-viewport{
 		position: relative !important;
