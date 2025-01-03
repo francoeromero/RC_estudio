@@ -422,8 +422,8 @@ video{
     left: 0;
     background: radial-gradient(
         circle,
-        rgba(26, 56, 2, 0.1) 10%,     
-        rgba(26, 56, 2, 0.8) 80%       
+        rgba(172, 172, 172, 0.1) 10%,     
+        rgba(110, 110, 110, 0.8) 80%       
 
     );
 }
@@ -885,9 +885,9 @@ video{
 	height: 150px;
 	width: 450px;
 	opacity: 0.8;
-	border: 2px solid rgb(147, 201, 21);
+	border: 2px solid rgb(206, 63, 7);
 	border-radius: 10px;
-	background:rgba(132, 207, 11, 0.5);
+	background:rgba(156, 40, 5, 0.5);
 	position: fixed;
 }
 .responsive-icons .r-icon img{
