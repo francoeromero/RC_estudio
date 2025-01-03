@@ -20,6 +20,9 @@ body{
 	padding:0;
 	background: #1d1d1d;
 }
+.responsive-icons{
+	display: none !important;
+}
 
 #canvas{
 	background-color: none ;
@@ -884,7 +887,7 @@ video{
     height: 150px; /* Altura del trapecio */
     width: 650px;  /* Base inferior */
     opacity: 0.8;
-    border: 2px solid rgb(206, 63, 7);
+    /* border: 6px solid rgb(206, 63, 7); */
     background: rgba(156, 40, 5, 0.5);
     clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%);
     /* Forma del trapecio (10% y 90% para los lados inclinados) */
@@ -906,7 +909,6 @@ video{
 
 
 
-
 .flechas_responsive{
 	display: none;	
 }
@@ -915,6 +917,9 @@ video{
 		display: flex;
 		align-items: center;
 		justify-content: center;
+	}
+	.responsive-icons{
+		display: flex !important;
 	}
 
 	.next-button-responsive{
